@@ -1,1 +1,3 @@
 .idea
+*.yml
+demo_images/**

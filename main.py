@@ -1,17 +1,19 @@
-import threading
+from threading import Thread
 from time import sleep
 
-from camera import stream, CURRENT_FRAME
-from events import on_success, on_failure
-from face_recognition import recognize
+from camera import get_current_frame, stream
+from events import on_failure, on_success
+from face_recognition import init_model, recognize
 
 
 def main():
-    stream_thread = threading.Thread(target=stream)
+    init_model()
+
+    stream_thread = Thread(target=stream)
     stream_thread.start()
 
     while stream_thread.is_alive():
-        frame = CURRENT_FRAME
+        frame = get_current_frame()
         succeeded: bool = recognize(frame)
         if succeeded:
             on_success()

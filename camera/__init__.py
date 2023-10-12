@@ -1,1 +1,1 @@
-from .stream import stream, CURRENT_FRAME
+from .stream import get_current_frame, stream
