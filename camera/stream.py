@@ -1,4 +1,4 @@
-import time
+from time import sleep
 
 import cv2
 
@@ -15,7 +15,7 @@ def stream(show_frames: bool = False) -> None:
             cv2.imshow("Frame", frame)
             if cv2.waitKey(1) == ord("q"):
                 break
-        time.sleep(0.5)
+        sleep(0.5)
     capture.release()
     cv2.destroyAllWindows()
 
