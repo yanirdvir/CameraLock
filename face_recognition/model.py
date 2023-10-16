@@ -31,7 +31,7 @@ def get_faces() -> tuple[list, np.ndarray]:
     return faces, ids
 
 
-def init_model() -> None:
+def init_face_recognition_model() -> None:
     global recognizer
     global faces_cascade_classifier
 

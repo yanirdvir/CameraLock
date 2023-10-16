@@ -3,11 +3,11 @@ from time import sleep
 
 from camera import get_current_frame, stream
 from events import on_failure, on_success
-from face_recognition import init_model, recognize
+from face_recognition import init_face_recognition_model, recognize
 
 
 def init():
-    init_model()
+    init_face_recognition_model()
 
 
 def main():
