@@ -16,6 +16,7 @@ def stream(show_frames: bool = False) -> None:
             if cv2.waitKey(1) == ord("q"):
                 break
         sleep(0.5)
+    CURRENT_FRAME = None
     capture.release()
     cv2.destroyAllWindows()
 
