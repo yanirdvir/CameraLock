@@ -6,8 +6,12 @@ from events import on_failure, on_success
 from face_recognition import init_model, recognize
 
 
-def main():
+def init():
     init_model()
+
+
+def main():
+    init()
 
     stream_thread = Thread(target=stream)
     stream_thread.start()
