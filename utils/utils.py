@@ -1,2 +1,5 @@
-def flatten(l: list) -> list:
-    return [item for sublist in l for item in sublist]
+from typing import Iterable
+
+
+def flatten(_iterable: Iterable) -> list:
+    return [item for sublist in _iterable for item in sublist]
