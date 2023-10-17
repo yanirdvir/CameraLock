@@ -4,7 +4,7 @@ import numpy as np
 
 from face_recognition.model import predict
 
-CONFIDENT_THRESHOLD = 0.50
+CONFIDENT_THRESHOLD = 0.70
 
 
 def recognize(frame: Optional[np.ndarray]) -> bool:
