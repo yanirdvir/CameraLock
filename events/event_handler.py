@@ -1,6 +1,7 @@
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
+from threading import Thread
 
 from playsound import playsound
 
@@ -22,7 +23,9 @@ def play_success_sound() -> None:
 
     filename = "events/sounds/success_sound.mp3"
     filename = Path(filename)
-    playsound(filename)
+
+    success_sound_thread = Thread(target=playsound, args=(filename,))
+    success_sound_thread.start()
 
 
 def update_event_changed(new_event: Event) -> bool:
