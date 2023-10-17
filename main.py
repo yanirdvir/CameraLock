@@ -1,9 +1,10 @@
 from threading import Thread
 from time import sleep
 
-from camera import get_current_frame, stream
+from authentication import is_authenticated
+from camera import stream
 from events import on_failure, on_success
-from face_recognition import init_face_recognition_model, recognize
+from face_recognition import init_face_recognition_model
 
 
 def init():
@@ -16,10 +17,8 @@ def main():
     stream_thread = Thread(target=stream)
     stream_thread.start()
 
-    while stream_thread.is_alive():
-        frame = get_current_frame()
-        succeeded: bool = recognize(frame)
-        if succeeded:
+    while True:
+        if is_authenticated():
             on_success()
         else:
             on_failure()
