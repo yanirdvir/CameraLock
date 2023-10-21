@@ -8,8 +8,8 @@ from utils import flatten
 
 recognizer: cv2.face.LBPHFaceRecognizer
 faces_cascade_classifier: cv2.CascadeClassifier
-MODEL_PATH = f"face_recognition/model.yml"
-CASCADE_CLASSIFIER_PATH = "face_recognition/haarcascade_frontalface_default.xml"
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "model.yml")
+CASCADE_CLASSIFIER_PATH = os.path.join(os.path.dirname(__file__), "haarcascade_frontalface_default.xml")
 
 
 def get_faces_from_frame(frame: np.ndarray) -> list[np.ndarray]:
@@ -30,7 +30,7 @@ def load_demo_images() -> tuple[list, np.ndarray]:
         face = np.array(face_image)
         return face
 
-    demo_images_path = "demo_images"
+    demo_images_path = os.path.join(os.path.dirname(__file__), os.pardir, "demo_images")
 
     images = [path_to_img(os.path.join(demo_images_path, f)) for f in os.listdir(demo_images_path) if is_image(f)]
 

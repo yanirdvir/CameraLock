@@ -1,6 +1,6 @@
+import os
 from datetime import datetime
 from enum import Enum
-from pathlib import Path
 from threading import Thread
 
 from playsound import playsound
@@ -21,10 +21,9 @@ last_event_changed_time = datetime.now()
 def play_success_sound() -> None:
     print("Playing success sound...")
 
-    filename = "events/sounds/success_sound.mp3"
-    filename = Path(filename)
+    sound_file_path = os.path.join(os.path.dirname(__file__), "sounds", "success_sound.mp3")
 
-    success_sound_thread = Thread(target=playsound, args=(filename,))
+    success_sound_thread = Thread(target=playsound, args=(sound_file_path,))
     success_sound_thread.start()
 
 
