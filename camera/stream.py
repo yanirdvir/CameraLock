@@ -4,13 +4,15 @@ from typing import Optional
 import cv2
 import numpy as np
 
+from program_manager import is_program_running
+
 CURRENT_FRAME: Optional[np.ndarray] = None
 
 
 def stream(show_frames: bool = False) -> None:
     global CURRENT_FRAME
     capture = cv2.VideoCapture(0)
-    while True:
+    while is_program_running():
         _, frame = capture.read()
         CURRENT_FRAME = frame
         if show_frames:
