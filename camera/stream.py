@@ -1,8 +1,10 @@
 from time import sleep
+from typing import Optional
 
 import cv2
+import numpy as np
 
-CURRENT_FRAME = None
+CURRENT_FRAME: Optional[np.ndarray] = None
 
 
 def stream(show_frames: bool = False) -> None:
@@ -21,5 +23,5 @@ def stream(show_frames: bool = False) -> None:
     cv2.destroyAllWindows()
 
 
-def get_current_frame():
+def get_current_frame() -> Optional[np.ndarray]:
     return CURRENT_FRAME
